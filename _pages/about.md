@@ -7,6 +7,7 @@ redirect_from:
   - /about.html
 ---
 
+# Biography
 
 I am Victoria Knapp Perez, a Ph.D. candidate in Physics at the University of California, Irvine (UCI), specializing in machine learning for scientific discovery and AI-driven model design. My work bridges reinforcement learning, deep learning, and computational physics, focusing on how intelligent systems can autonomously construct and validate scientific models.  
 
