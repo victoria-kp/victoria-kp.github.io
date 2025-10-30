@@ -1,0 +1,87 @@
+---
+layout: archive
+permalink: /portfolio/
+title: "Software Portfolio"
+author_profile: true
+---
+
+{% include base_path %}
+
+  <ul class="package-list">
+
+    <li class="package-item">
+      <h1>
+        <a href="https://github.com/victoria-kp/FlavorBuilder/tree/main" target="_blank" rel="noopener noreferrer">
+          FlavorBuilder
+        </a>
+      </h1>
+
+      <p>
+        The package is available on
+        <a href="https://pypi.org/project/FlavorBuilder/" target="_blank" rel="noopener noreferrer">PyPI</a>
+        and
+        <a href="https://github.com/victoria-kp/FlavorBuilder/tree/main" target="_blank" rel="noopener noreferrer">GitHub</a>.
+      </p>
+
+      <p>
+        <strong>FlavorBuilder</strong> is a unified Python framework for model building with finite flavor symmetries in particle physics.
+        It integrates group-theory computations via
+        <a href="https://www.gap-system.org/" target="_blank" rel="noopener noreferrer">GAP</a>
+        with model-building tools for constructing and analyzing flavor models.
+        This package serves as a core component supporting our work in
+        <a href="https://arxiv.org/pdf/2506.08080" target="_blank" rel="noopener noreferrer">arXiv:2506.08080 [hep-ph]</a>.
+        It contains the subpackages <strong>PyDiscrete</strong> and <strong>Model2Mass</strong>.
+      </p>
+
+      <p>
+        <strong>PyDiscrete</strong> is a Python reimplementation of the Mathematica package
+        <a href="https://discrete.hepforge.org/" target="_blank" rel="noopener noreferrer">Discrete</a>
+        that enables group-theory computations via
+        <a href="https://www.gap-system.org/" target="_blank" rel="noopener noreferrer">GAP</a>.
+        It extracts group properties and character tables, and computes Kronecker products and Clebsch–Gordan coefficients.
+        See the tutorial notebook <code>TutorialPyDiscrete.ipynb</code> included in the
+        <a href="https://github.com/victoria-kp/FlavorBuilder/tree/main" target="_blank" rel="noopener noreferrer">GitHub repository</a>
+        for more details.
+      </p>
+
+      <p>
+        <strong>Model2Mass</strong> provides symbolic and numerical tools for constructing Lagrangians, deriving mass matrices,
+        and computing phenomenologically relevant quantities for BSM flavor models with finite flavor symmetry.
+      </p>
+
+      <p>
+        <strong>References and Citations:</strong><br><br>
+        1. <strong>GAP library:</strong> The GAP Group. <em>GAP – Groups, Algorithms, and Programming</em>, Version 4.14.0, 
+        <a href="https://www.gap-system.org" target="_blank" rel="noopener noreferrer">https://www.gap-system.org</a> (2024).<br><br>
+
+        2. <a href="https://discrete.hepforge.org/" target="_blank" rel="noopener noreferrer">Discrete</a>:
+        Mathematica <em>Discrete</em> by Martin Holthausen and Michael A. Schmidt,
+        <a href="http://arxiv.org/abs/1111.1730" target="_blank" rel="noopener noreferrer">arXiv:1111.1730</a>.<br><br>
+
+        3. <a href="https://github.com/FlavorPy/FlavorPy/tree/master" target="_blank" rel="noopener noreferrer">FlavorPy</a>:
+        A. Baur, "FlavorPy", <em>Zenodo</em>, 2024, doi:
+        <a href="https://zenodo.org/records/12191928" target="_blank" rel="noopener noreferrer">10.5281/zenodo.11060597</a>.<br><br>
+
+        4. <strong>NuFit data:</strong> If you use the NuFit experimental data in FlavorPy, please also cite:<br>
+        I. Esteban, M. C. González-García, M. Maltoni, T. Schwetz, and A. Zhou,
+        <em>The fate of hints: updated global analysis of three-flavor neutrino oscillations</em>,
+        JHEP 09 (2020), 178,
+        <a href="https://arxiv.org/abs/2007.14792" target="_blank" rel="noopener noreferrer">arXiv:2007.14792 [hep-ph]</a>,
+        <a href="https://www.nu-fit.org" target="_blank" rel="noopener noreferrer">https://www.nu-fit.org</a>.<br><br>
+
+        5. <strong>Our work:</strong> J. B. Baretz, M. Fieg, V. Ganesh, A. Ghosh, V. Knapp-Perez, J. Rudolph, and D. Whiteson,
+        <em>Towards AI-assisted Neutrino Flavor Theory Design</em>,
+        <a href="https://arxiv.org/pdf/2506.08080" target="_blank" rel="noopener noreferrer">arXiv:2506.08080 [hep-ph]</a>.
+      </p>
+
+      <p>
+        <strong>Credit:</strong> The <strong>PyDiscrete</strong> subpackage is partly a Python translation of the Mathematica package 
+        <a href="https://discrete.hepforge.org/" target="_blank" rel="noopener noreferrer">Discrete</a> 
+        by Martin Holthausen and Michael A. Schmidt.
+      </p>
+
+      <hr>
+    </li>
+
+  </ul>
+
