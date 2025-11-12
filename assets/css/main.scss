@@ -46,6 +46,11 @@
    Custom overrides (add anything below this line)
    ----------------------------------------------------- */
 
+.author__avatar {
+  width: 150px !important;
+  height: 150px !important;
+}
+
 @media (max-width: 600px) {
   .author__avatar {
     width: 110px !important;
