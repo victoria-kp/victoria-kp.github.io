@@ -15,7 +15,7 @@ redirect_from:
       Download Resume
     </a>
     <br>
-    This version highlights my experience and projects relevant to industry and applied AI research roles.
+    This version emphasizes relevant experience in AI, data science, and software engineering.
   </p>
 
   <p>
