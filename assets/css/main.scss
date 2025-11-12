@@ -46,7 +46,9 @@
    Custom overrides (add anything below this line)
    ----------------------------------------------------- */
 
-.author__avatar {
-  width: 100px !important;
-  height: 100px !important;
+@media (max-width: 600px) {
+  .author__avatar {
+    width: 110px !important;
+    height: 110px !important;
+  }
 }
