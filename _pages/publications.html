@@ -293,16 +293,29 @@ Particle physics theories, such as those which explain neutrino flavor mixing, a
 </section>
 
 
+<!-- Toggle abstracts script -->
 <script>
-  (function () {
-    var buttons = document.querySelectorAll('.js-abstract-toggle');
-    buttons.forEach(function(btn){
-      btn.addEventListener('click', function(){
-        var targetId = btn.getAttribute('data-target');
-        var abs = document.getElementById(targetId);
+  (function attachAbstractToggles() {
+    function onReady(fn){ 
+      if (document.readyState !== 'loading') fn();
+      else document.addEventListener('DOMContentLoaded', fn, {once:true});
+    }
+
+    onReady(function () {
+      document.addEventListener('click', function (e) {
+        const btn = e.target.closest('.js-abstract-toggle');
+        if (!btn) return;
+
+        e.preventDefault();
+        const targetId = btn.getAttribute('data-target');
+        if (!targetId) return;
+
+        const abs = document.getElementById(targetId);
         if (!abs) return;
-        var isOpen = abs.style.display === 'block';
+
+        const isOpen = abs.style.display === 'block';
         abs.style.display = isOpen ? 'none' : 'block';
+
         btn.textContent = isOpen ? 'Show abstract' : 'Hide abstract';
         btn.setAttribute('aria-expanded', String(!isOpen));
       });
