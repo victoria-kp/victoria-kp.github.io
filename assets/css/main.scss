@@ -41,3 +41,12 @@
     "vendor/font-awesome/solid",
     "vendor/font-awesome/brands"
 ;
+
+/* -----------------------------------------------------
+   Custom overrides (add anything below this line)
+   ----------------------------------------------------- */
+
+.author__avatar {
+  width: 150px !important;
+  height: 150px !important;
+}
