@@ -11,6 +11,88 @@ author_profile: true
 
     <li class="package-item">
       <h1>
+        <a href="https://github.com/victoria-kp/AI_QuantumMechanic" target="_blank" rel="noopener noreferrer">
+          AI-QuantumMechanic
+        </a>
+      </h1>
+
+      <p>
+        The source code is available on
+        <a href="https://github.com/victoria-kp/AI_QuantumMechanic" target="_blank" rel="noopener noreferrer">GitHub</a>.
+      </p>
+
+      <p>
+        <strong>AI-QuantumMechanic</strong> is a prototype LLM agent that solves graduate-level quantum mechanics problems
+        through tool orchestration rather than memorization. Instead of generating equations directly, the agent
+        delegates every symbolic and numerical computation to verified tools and references results through opaque
+        registry keys it cannot forge, ensuring a verifiable chain of provenance for each derivation step.
+      </p>
+
+      <p><strong>Architecture:</strong></p>
+      <ul>
+        <li>Three-node <a href="https://langchain-ai.github.io/langgraph/" target="_blank" rel="noopener noreferrer">LangGraph</a>
+          state machine powered by Anthropic's Claude Sonnet: <em>reasoning</em> → <em>tool execution</em> → <em>validation</em>.</li>
+        <li>The <strong>reasoning node</strong> calls Claude with the full conversation history and tool definitions;
+          it either requests a tool call or presents a final answer.</li>
+        <li>The <strong>tool execution node</strong> dispatches to one of four tool handlers and routes back to reasoning.</li>
+        <li>The <strong>checker node</strong> runs three independent validators; on failure it returns actionable feedback
+          and retries (up to 2), with a sanitizer fallback as graceful degradation.</li>
+      </ul>
+
+      <p><strong>Tool Suite (20+ operations):</strong></p>
+      <ul>
+        <li><strong>Symbolic math</strong> (SymPy): algebra, calculus, ODE solving (with automatic boundary-condition handling
+          for both finite-domain and normalizable solutions), commutators, time evolution, Fourier transforms,
+          and special-function evaluation (Hermite, Laguerre, spherical harmonics, parabolic cylinder D).</li>
+        <li><strong>Numerical compute</strong> (SciPy/NumPy): root finding (<code>brentq</code>, <code>fsolve</code>),
+          ODE integration (<code>solve_ivp</code>, <code>solve_bvp</code>) with automatic higher-order-to-first-order
+          system decomposition, quadrature, and wavefunction normalization.</li>
+        <li><strong>Equation catalog:</strong> a read-only reference of 14 standard physics equations (Schrödinger equations,
+          potentials, operators, eigenvalues). Raw expressions are hidden from the LLM and accessible only through tool calls,
+          adding another anti-hallucination layer.</li>
+        <li><strong>Plotting:</strong> Matplotlib-based generation of publication-quality wavefunction and probability-density figures.</li>
+      </ul>
+
+      <p><strong>Anti-Hallucination Mechanism — Opaque Registry Keys:</strong></p>
+      <ul>
+        <li>Every tool result (symbolic or numerical) is stored in an in-memory registry under auto-incrementing keys
+          (<code>expr_1</code>, <code>expr_2</code>, … for symbolic; <code>data_1</code>, <code>data_2</code>, … for numerical arrays).</li>
+        <li>The agent can read expression strings for reasoning, but must pass opaque keys—not raw formulas—when
+          calling the next tool. A strict regex rejects any compound expression the LLM tries to inject as a substitution value.</li>
+        <li>This dual-registry design keeps large objects out of the LLM context while guaranteeing that every expression
+          in the derivation has a verifiable computational origin.</li>
+      </ul>
+
+      <p><strong>Validation System (Three Independent Checkers):</strong></p>
+      <ul>
+        <li><strong>Expression sourcing:</strong> verifies that every mathematical expression in the final answer traces
+          back to a tool result, using exact substring matching and chunk-overlap detection.</li>
+        <li><strong>Normalization:</strong> confirms wavefunctions satisfy ∫|ψ|²&nbsp;=&nbsp;1, supporting multiple
+          coordinate systems (Cartesian, spherical, cylindrical, polar) with appropriate integration weights.</li>
+        <li><strong>Physical sanity:</strong> checks bound-state energy signs, probability non-negativity,
+          and energy-level ordering (E₀ &lt; E₁ &lt; E₂).</li>
+      </ul>
+
+      <p><strong>Demonstrated Capabilities:</strong></p>
+      <ul>
+        <li><strong>Infinite square well</strong> — fully analytical: symbolic ODE solving with finite-domain boundary conditions,
+          eigenvalue extraction, and normalization.</li>
+        <li><strong>Quantum harmonic oscillator</strong> — analytical with special functions: normalizable boundary conditions,
+          asymptotic analysis, parabolic cylinder D functions, and quantization-condition extraction.</li>
+        <li><strong>Finite square well</strong> — hybrid analytical/numerical: symbolic setup per region, boundary matching,
+          transcendental root finding, numerical ODE integration, and wavefunction normalization.</li>
+      </ul>
+
+      <p>
+        <strong>Technologies:</strong>
+        LangGraph, Anthropic SDK (Claude Sonnet), SymPy, SciPy, NumPy, Matplotlib, pytest.
+      </p>
+
+      <hr>
+    </li>
+
+    <li class="package-item">
+      <h1>
         <a href="https://github.com/victoria-kp/FlavorBuilder/tree/main" target="_blank" rel="noopener noreferrer">
           FlavorBuilder
         </a>
