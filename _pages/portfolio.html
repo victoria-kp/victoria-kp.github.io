@@ -11,63 +11,6 @@ author_profile: true
 
     <li class="package-item">
       <h1>
-        <a href="https://github.com/victoria-kp/AI-Risk" target="_blank" rel="noopener noreferrer">
-          AI-Risk
-        </a>
-      </h1>
-
-      <p>
-        The source code is available on
-        <a href="https://github.com/victoria-kp/AI-Risk" target="_blank" rel="noopener noreferrer">GitHub</a>,
-        and the trained model weights are on
-        <a href="https://huggingface.co/victoria-kp/risk-qwen-grpo-v3" target="_blank" rel="noopener noreferrer">Hugging Face</a>.
-      </p>
-
-      <p>
-        <strong>AI-Risk</strong> is an end-to-end machine learning pipeline that fine-tunes
-        Qwen 2.5 7B Instruct to play the strategic board game Risk. Rather than relying on
-        hand-crafted heuristics, the model learns to make strategic decisions about troop
-        reinforcement and attack selection, outputting structured JSON responses preceded by
-        chain-of-thought reasoning.
-      </p>
-
-      <p><strong>Training Pipeline:</strong></p>
-      <ul>
-        <li><strong>Data collection:</strong> ~27,000 turn entries generated from 1,000 games
-          (500 BetterAI + 500 ChronAI heuristic agents) via the PyRisk game engine.</li>
-        <li><strong>Supervised fine-tuning (SFT):</strong> 200 steps with QLoRA (4-bit NF4 quantization),
-          learning rate 2e-5, teaching the model correct JSON formatting and basic strategy.</li>
-        <li><strong>GRPO reinforcement learning:</strong> two rounds of Group Relative Policy Optimization
-          (50 steps each, up to 8 generations per prompt) with a custom reward function weighting
-          25% format correctness and 75% strategic quality.</li>
-      </ul>
-
-      <p><strong>Reward Function:</strong></p>
-      <ul>
-        <li><strong>Reinforcement scoring:</strong> JSON validity, troop concentration penalties,
-          border-territory preference, and continent-completion incentives.</li>
-        <li><strong>Attack scoring:</strong> JSON validity, index-range validation, troop-ratio
-          quality assessment, activity bonuses, and continent-targeting rewards.</li>
-      </ul>
-
-      <p><strong>Results</strong> (20-game benchmark against two StupidAI opponents):</p>
-      <ul>
-        <li><strong>Win rate:</strong> 30% (GRPO v3), up from 5% (base) and 15% (SFT only).</li>
-        <li><strong>Fallback rate:</strong> 5%, down from 14% (base).</li>
-        <li><strong>Average reward score:</strong> 0.813, outperforming Gemini Flash Lite's zero-shot baseline.</li>
-      </ul>
-
-      <p>
-        <strong>Technologies:</strong>
-        Transformers, TRL (GRPO), PEFT/QLoRA, bitsandbytes, PyRisk, Weights &amp; Biases,
-        Google Colab (H100 GPU).
-      </p>
-
-      <hr>
-    </li>
-
-    <li class="package-item">
-      <h1>
         <a href="https://github.com/victoria-kp/AI_QuantumMechanic" target="_blank" rel="noopener noreferrer">
           AI-QuantumMechanic
         </a>
@@ -138,6 +81,66 @@ author_profile: true
 
     <li class="package-item">
       <h1>
+        <a href="https://github.com/victoria-kp/AI-Risk" target="_blank" rel="noopener noreferrer">
+          AI-Risk
+        </a>
+      </h1>
+
+      <p>
+        The source code is available on
+        <a href="https://github.com/victoria-kp/AI-Risk" target="_blank" rel="noopener noreferrer">GitHub</a>,
+        and the trained model weights are on
+        <a href="https://huggingface.co/victoria-kp/risk-qwen-grpo-v3" target="_blank" rel="noopener noreferrer">Hugging Face</a>.
+      </p>
+
+      <p>
+        <strong>AI-Risk</strong> is an end-to-end machine learning pipeline that fine-tunes
+        Qwen 2.5 7B Instruct to play the strategic board game Risk. Rather than relying on
+        hand-crafted heuristics, the model learns to make strategic decisions about troop
+        reinforcement and attack selection, outputting structured JSON responses preceded by
+        chain-of-thought reasoning.
+      </p>
+
+      <p><strong>Training Pipeline:</strong></p>
+      <ul>
+        <li><strong>Data collection:</strong> ~27,000 turn entries generated from 1,000 games
+          (500 BetterAI + 500 ChronAI heuristic agents) via the PyRisk game engine.</li>
+        <li><strong>Supervised fine-tuning (SFT):</strong> 200 steps with QLoRA (4-bit NF4 quantization),
+          learning rate 2e-5, teaching the model correct JSON formatting and basic strategy.</li>
+        <li><strong>GRPO reinforcement learning:</strong> two rounds of Group Relative Policy Optimization
+          (50 steps each, up to 8 generations per prompt) with a custom reward function weighting
+          25% format correctness and 75% strategic quality.</li>
+      </ul>
+
+      <p><strong>Reward Function:</strong></p>
+      <ul>
+        <li><strong>Reinforcement scoring:</strong> JSON validity, troop concentration penalties,
+          border-territory preference, and continent-completion incentives.</li>
+        <li><strong>Attack scoring:</strong> JSON validity, index-range validation, troop-ratio
+          quality assessment, activity bonuses, and continent-targeting rewards.</li>
+      </ul>
+
+      <p><strong>Results</strong> (20-game benchmark against two StupidAI opponents, where StupidAI
+        is a PyRisk baseline bot that makes entirely random moves with no strategy):</p>
+      <ul>
+        <li><strong>Gemini Flash Lite (zero-shot):</strong> 0% win rate, 1% fallback rate, 0.777 average reward.</li>
+        <li><strong>Qwen base (no fine-tuning):</strong> 5% win rate, 14% fallback rate, 0.774 average reward.</li>
+        <li><strong>Qwen SFT:</strong> 15% win rate, 5% fallback rate, 0.813 average reward.</li>
+        <li><strong>Qwen GRPO v2:</strong> 30% win rate, 7% fallback rate, 0.796 average reward.</li>
+        <li><strong>Qwen GRPO v3 (final):</strong> 30% win rate, 5% fallback rate, 0.813 average reward.</li>
+      </ul>
+
+      <p>
+        <strong>Technologies:</strong>
+        Transformers, TRL (GRPO), PEFT/QLoRA, bitsandbytes, PyRisk, Weights &amp; Biases,
+        Google Colab (H100 GPU).
+      </p>
+
+      <hr>
+    </li>
+
+    <li class="package-item">
+      <h1>
         <a href="https://github.com/victoria-kp/FlavorBuilder/tree/main" target="_blank" rel="noopener noreferrer">
           FlavorBuilder
         </a>
@@ -178,7 +181,7 @@ author_profile: true
 
       <p>
         <strong>References and Citations:</strong><br><br>
-        1. <strong>GAP library:</strong> The GAP Group. <em>GAP – Groups, Algorithms, and Programming</em>, Version 4.14.0, 
+        1. <strong>GAP library:</strong> The GAP Group. <em>GAP – Groups, Algorithms, and Programming</em>, Version 4.14.0,
         <a href="https://www.gap-system.org" target="_blank" rel="noopener noreferrer">https://www.gap-system.org</a> (2024).<br><br>
 
         2. <a href="https://discrete.hepforge.org/" target="_blank" rel="noopener noreferrer">Discrete</a>:
@@ -202,8 +205,8 @@ author_profile: true
       </p>
 
       <p>
-        <strong>Credit:</strong> The <strong>PyDiscrete</strong> subpackage is partly a Python translation of the Mathematica package 
-        <a href="https://discrete.hepforge.org/" target="_blank" rel="noopener noreferrer">Discrete</a> 
+        <strong>Credit:</strong> The <strong>PyDiscrete</strong> subpackage is partly a Python translation of the Mathematica package
+        <a href="https://discrete.hepforge.org/" target="_blank" rel="noopener noreferrer">Discrete</a>
         by Martin Holthausen and Michael A. Schmidt.
       </p>
 
@@ -211,4 +214,3 @@ author_profile: true
     </li>
 
   </ul>
-
